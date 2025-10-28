@@ -265,6 +265,6 @@ long EnergyMonitor::readVcc() {
   #endif
 }
 
-static int EnergyMonitor::defaultAnalogReader(int _pin) {
+int EnergyMonitor::defaultAnalogReader(int _pin) {
   return analogRead(_pin);
 }
