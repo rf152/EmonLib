@@ -18,6 +18,10 @@
 #include "WProgram.h"
 #endif
 
+EnergyMonitor::EnergyMonitor()
+{
+  this->analogReader = defaultAnalogReader;
+}
 
 //--------------------------------------------------------------------------------------
 // Sets the pins to be used for voltage and current sensors
@@ -261,3 +265,6 @@ long EnergyMonitor::readVcc() {
   #endif
 }
 
+static int EnergyMonitor::defaultAnalogReader(int _pin) {
+  return analogRead(_pin);
+}

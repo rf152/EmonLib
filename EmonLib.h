@@ -45,6 +45,11 @@
 class EnergyMonitor
 {
   public:
+    EnergyMonitor();
+
+    typedef int (*analogReaderMethod) (int _pin);
+    analogReaderMethod analogReader;
+
 
     void voltage(unsigned int _inPinV, double _VCAL, double _PHASECAL);
     void current(unsigned int _inPinI, double _ICAL);
@@ -65,6 +70,8 @@ class EnergyMonitor
       Irms;
 
   private:
+
+    static int defaultAnalogReader(int _pin);
 
     //Set Voltage and current input pins
     unsigned int inPinV;
